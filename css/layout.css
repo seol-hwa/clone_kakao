@@ -50,6 +50,7 @@ header .inner{
 .h-right-wrap a{
     padding:6px;
     border-radius:50%;
+    display: block;
 }
 .h-right-wrap a:hover{
     background:#ededed;
@@ -155,7 +156,7 @@ header .inner{
     display: flex;
     align-items:center;
     justify-content: space-between;
-    margin-top:auto;
+    margin:auto 0 30px 0;
 }
 .burger-left{
     display: flex;
@@ -165,16 +166,21 @@ header .inner{
     color:#666;
     display: flex;
     align-items: center;
+    font-size: 14px;
 }
 .burger-left a .bx-chevron-up{
     display: none;
 }
 .burger-right{
     display: flex;
-    gap:30px;
+    gap:20px;
+}
+.burger-right div .dark-mode,
+.burger-right div .eng-site{
+    display: block;
 }
 .burger-right div a .bx{
-    font-size: 34px;
+    font-size: 26px;
     color:#222;
 }
 
