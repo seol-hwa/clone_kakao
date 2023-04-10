@@ -1,12 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>카카오</title>
+    <link rel="short icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script> -->
+    <!-- <script>
+        window.onload = function () {
+            document.querySelector('.burger-inner').style.height=window.innerHeight;
+        }
+    </script> -->
 </head>
+
 <body>
-    
+    <ul class="skip-menu">
+        <li>
+            <a href="#">본문 바로가기</a>
+        </li>
+        <li>
+            <a href="#">메뉴 바로가기</a>
+        </li>
+    </ul>
+    <header>
+        <div class="inner">
+            <a href="index.html" class="logo-wrap">
+                <img src="img/30ef110c018700001.png" alt="카카오">
+            </a>
+            <ul class="gnb-list">
+                <li>
+                    <a href="#" class="main-menu">카카오</a>
+                    <ul class="sub-menu-list">
+                        <li>
+                            <a href="#" class="sub-menu">카카오 문화</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu">공동체</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu">히스토리</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="main-menu">뉴스</a>
+                </li>
+                <li>
+                    <a href="#" class="main-menu">기술과 서비스</a>
+                    <ul class="sub-menu-list">
+                        <li>
+                            <a href="#" class="sub-menu">기술</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu">서비스</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="main-menu">약속과 책임</a>
+                    <ul class="sub-menu-list">
+                        <li>
+                            <a href="#" class="sub-menu">ESG</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu">카카오의 다짐</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu">소셜임팩트</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu">디지털 권리</a>
+                        </li>
+                        <li>
+                            <a href="#" class="sub-menu">AI윤리</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="h-right-wrap">
+                <a href="#" class="search">
+                    <span class="blind">검색하기</span>
+                    <i class='bx bx-search'></i>
+                </a>
+                <div class="lang-change">
+                    <a href="#" class="eng-site">
+                        <span class="blind">영문사이트</span>
+                        <i class='bx bx-globe'></i>
+                    </a>
+                    <a href="#" class="kor-site">
+                        <span class="blind">한글사이트</span>
+                        <i class='bx bx-reset'></i>
+                    </a>
+                </div>
+                <div class="brightness">
+                    <a href="#" class="dark-mode">
+                        <span class="blind">다크모드로 변경</span>
+                        <i class='bx bx-moon'></i>
+                    </a>
+                    <a href="#" class="light-mode">
+                        <span class="blind">라이트모드로 변경</span>
+                        <i class='bx bx-sun'></i>
+                    </a>
+                </div>
+                <a href="#" class="burger-btn">
+                    <span class="blind">메뉴 열기</span>
+                    <i class='bx bx-menu'></i>
+                </a>
+            </div>
+        </div>
+        <!--hamburger menu-->
+        <div class="burger-wrap">
+            <div class="burger-inner">
+                <div class="burger-top">
+                    <a href="#" class="logo-wrap">
+                        <img src="img/30ef110c018700001.png" alt="카카오">
+                    </a>
+                    <a href="#" class="burger-close">
+                        <span class="blind">메뉴 닫기</span>
+                        <i class='bx bx-x'></i>
+                    </a>
+                </div>
+                <ul class="bgmenu-list">
+                    <li>
+                        <a href="#" class="bg-main bg-lion">카카오<i class='bx bxs-down-arrow'></i><i
+                                class='bx bxs-up-arrow'></i></a>
+                        <ul class="bgsub-list">
+                            <li>
+                                <a href="#" class="bgsub">카카오 문화</a>
+                            </li>
+                            <li>
+                                <a href="#" class="bgsub">공동체</a>
+                            </li>
+                            <li>
+                                <a href="#" class="bgsub">히스토리</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="bg-main bg-news">뉴스</a>
+                    </li>
+                    <li>
+                        <a href="#" class="bg-main bg-tech">기술과 서비스<i class='bx bxs-down-arrow'></i><i
+                                class='bx bxs-up-arrow'></i></a>
+                        <ul class="bgsub-list">
+                            <li>
+                                <a href="#" class="bgsub">기술</a>
+                            </li>
+                            <li>
+                                <a href="#" class="bgsub">서비스</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="bg-main bg-promise">약속과 책임<i class='bx bxs-down-arrow'></i><i
+                                class='bx bxs-up-arrow'></i></a>
+                        <ul class="bgsub-list">
+                            <li>
+                                <a href="#" class="bgsub">ESG</a>
+                            </li>
+                            <li>
+                                <a href="#" class="bgsub">카카오의 다짐</a>
+                            </li>
+                            <li>
+                                <a href="#" class="bgsub">소셜임팩트</a>
+                            </li>
+                            <li>
+                                <a href="#" class="bgsub">디지털 권리</a>
+                            </li>
+                            <li>
+                                <a href="#" class="bgsub">AI윤리</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="burger-bottom">
+                    <div class="burger-left">
+                        <a href="#">투자정보</a>
+                        <a href="#">인재영입</a>
+                        <a href="#" class="center">고객센터<i class='bx bx-chevron-down'></i><i
+                                class='bx bx-chevron-up'></i></a>
+                    </div>
+                    <div class="burger-right">
+                        <div class="brightness">
+                            <a href="#" class="dark-mode">
+                                <span class="blind">다크모드로 변경</span>
+                                <i class='bx bx-moon'></i>
+                            </a>
+                            <a href="#" class="light-mode">
+                                <span class="blind">라이트모드로 변경</span>
+                                <i class='bx bx-sun'></i>
+                            </a>
+                        </div>
+                        <div class="lang-change">
+                            <a href="#" class="eng-site">
+                                <span class="blind">영문사이트</span>
+                                <i class='bx bx-globe'></i>
+                            </a>
+                            <a href="#" class="kor-site">
+                                <span class="blind">한글사이트</span>
+                                <i class='bx bx-reset'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 </body>
+
 </html>
