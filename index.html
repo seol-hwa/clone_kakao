@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/layout.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
     <!-- <script>
         window.onload = function () {
             document.querySelector('.burger-inner').style.height=window.innerHeight;
@@ -30,8 +32,9 @@
         </li>
     </ul>
     <header>
-        <div class="inner">
-            <div class="head-container">
+        <!--main head-->
+        <div class="head-container">
+            <div class="inner">
                 <a href="index.html" class="logo-wrap">
                     <img src="img/30ef110c018700001.png" alt="카카오 로고">
                 </a>
@@ -117,11 +120,20 @@
                         <span class="blind">메뉴 열기</span>
                         <i class='bx bx-menu'></i>
                     </a>
-                    <a href="#" class="search-close">
-                        <span class="blind">검색창 닫기</span>
-                        <i class='bx bx-x'></i>
-                    </a>
                 </div>
+                <a href="#" class="search-close">
+                    <span class="blind">검색창 닫기</span>
+                    <i class='bx bx-x'></i>
+                </a>
+            </div>
+        </div>
+        <!--scroll head-->
+        <div class="sub-head-container">
+            <div class="inner">
+                <div class="date-img-title">
+                    <img src="img/10d.png" alt="12일">
+                </div>
+                <span class="today-kakao">오늘의 카카오</span>
             </div>
         </div>
         <!--hamburger menu-->
@@ -194,7 +206,13 @@
                         <a href="#">투자정보</a>
                         <a href="#">인재영입</a>
                         <a href="#" class="center">고객센터<i class='bx bx-chevron-down'></i><i
-                                class='bx bx-chevron-up'></i></a>
+                                class='bx bx-chevron-up'></i>
+                        </a>
+                        <div class="center-wrap">
+                            <a href="#">카카오 고객센터<i class='bx bx-right-top-arrow-circle'></i></a>
+                            <a href="#">Daum 고객센터<i class='bx bx-right-top-arrow-circle'></i></a>
+                            <a href="#">멜론 고객센터<i class='bx bx-right-top-arrow-circle'></i></a>
+                        </div>
                     </div>
                     <div class="burger-right">
                         <div class="brightness">
@@ -224,9 +242,9 @@
     </header>
     <main>
         <!--search-->
-        <!-- <section class="search-containet">
-            <div class="inner">
-                <div class="search-wrap">
+        <section class="search-containet">
+            <div class="search-wrap">
+                <div class="inner">
                     <form action="#" method="post">
                         <span class="blind">검색 영역</span>
                         <div class="search-box">
@@ -245,7 +263,7 @@
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
     </main>
     <script src="js/main.js"></script>
 </body>

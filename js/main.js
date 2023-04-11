@@ -4,11 +4,7 @@ burger();
 function gnb() {
     const mainMenu = $('.main-menu');
     const subMenu = $('.sub-menu-list');
-    const gnbWrap = $('gnb-wrap');
 
-    mainMenu.each(function () {
-        $(this).data('opCheck', false);
-    })
 
     mainMenu.parent('li').on('mouseenter', function () {
         mainMenu.addClass('off');
@@ -18,22 +14,31 @@ function gnb() {
         mainMenu.removeClass('off');
     })
 
-    mainMenu.on('click focus', function (e) {
+    mainMenu.each(function () {
+        $(this).data('opCheck', false);
+    })
+    mainMenu.on('click', function () {
         if ($(this).data('opCheck') == false) {
-            subMenu.css({ 'display': 'none' });
-            $(this).next().css({ 'display': 'flex' });
+            subMenu.removeClass('on');
+            $(this).next().addClass('on');
             mainMenu.data('opCheck', false);
             $(this).data('opCheck', true);
         } else {
-            subMenu.css({ 'display': 'none' });
+            subMenu.removeClass('on');
             mainMenu.data('opCheck', false);
         }
     });
 }
+
 function burger() {
     const bgOpen = $('.burger-btn');
     const bgClose = $('.burger-close');
     const bgWrap = $('.burger-wrap');
+    const bgMain = $('.bg-main');
+    let time=500;
+    const center=$('.center');
+    const centerWrap=$('.center-wrap');
+    let isOpen=false;
 
     bgOpen.on('click', function () {
         bgWrap.css({ right: 0 });
@@ -42,7 +47,6 @@ function burger() {
         bgWrap.css({ right: '-100%' });
     })
 
-    const bgMain = $('.bg-main');
 
     bgMain.each(function () {
         $(this).data('opCheck', false);
@@ -50,15 +54,25 @@ function burger() {
 
     bgMain.on('click', function () {
         if ($(this).data('opCheck') == false) {
-            // bgSub.slideUp(500);
-            $(this).next().slideDown(500);
+            $(this).next().slideDown(time);
             $(this).addClass('on');
-            // bgMain.data('opCheck',false);
             $(this).data('opCheck', true);
         } else {
-            $(this).next().slideUp(500);
+            $(this).next().slideUp(time);
             $(this).removeClass('on');
             $(this).data('opCheck', false);
+        }
+    })
+
+    center.on('click',function(){
+        if(isOpen==false){
+            $(this).addClass('on');
+            centerWrap.show();
+            isOpen=true;
+        }else{
+            $(this).removeClass('on');
+            centerWrap.hide();
+            isOpen=false;
         }
     })
 }
