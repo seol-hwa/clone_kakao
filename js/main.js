@@ -1,5 +1,6 @@
 gnb();
 burger();
+search();
 
 function gnb() {
     const mainMenu = $('.main-menu');
@@ -35,10 +36,10 @@ function burger() {
     const bgClose = $('.burger-close');
     const bgWrap = $('.burger-wrap');
     const bgMain = $('.bg-main');
-    let time=500;
-    const center=$('.center');
-    const centerWrap=$('.center-wrap');
-    let isOpen=false;
+    let time = 500;
+    const center = $('.center');
+    const centerWrap = $('.center-wrap');
+    let isOpen = false;
 
     bgOpen.on('click', function () {
         bgWrap.css({ right: 0 });
@@ -54,25 +55,50 @@ function burger() {
 
     bgMain.on('click', function () {
         if ($(this).data('opCheck') == false) {
-            $(this).next().slideDown(time);
+            $(this).next().show();
             $(this).addClass('on');
             $(this).data('opCheck', true);
         } else {
-            $(this).next().slideUp(time);
+            $(this).next().hide();
             $(this).removeClass('on');
             $(this).data('opCheck', false);
         }
     })
 
-    center.on('click',function(){
-        if(isOpen==false){
+    center.on('click', function () {
+        if (isOpen == false) {
             $(this).addClass('on');
             centerWrap.show();
-            isOpen=true;
-        }else{
+            isOpen = true;
+        } else {
             $(this).removeClass('on');
             centerWrap.hide();
-            isOpen=false;
+            isOpen = false;
         }
+    })
+}
+
+function search() {
+    const search = $('.search');
+    const con = $('.search-container');
+    const head = $('.search-head');
+    const close = $('.search-close');
+    const form = $('.search-form');
+
+    search.on('click', function () {
+        con.show();
+        close.fadeIn(300);
+        setTimeout(function () {
+            form.animate({ top: 0, opacity: 1 }, 300);
+        }, 200);
+    })
+
+    close.on('click', function () {
+        form.animate({ top: '-30px', opacity: 0 }, 200, function () {
+            close.fadeOut(0);
+        });
+        setTimeout(function () {
+            con.hide();
+        }, 200);
     })
 }
