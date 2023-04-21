@@ -1,6 +1,7 @@
 gnb();
 burger();
 search();
+content();
 
 function gnb() {
     const mainMenu = $('.main-menu');
@@ -100,5 +101,19 @@ function search() {
         setTimeout(function () {
             con.hide();
         }, 200);
+    })
+}
+function content(){
+    $(window).on('scroll',function(){
+        let scrollT=$(window).scrollTop();
+        const lSize=$('.l-size');
+        if(scrollT >= 277){
+            lSize.addClass('onFix');
+        }else if(scrollT >= 680){
+            lSize.removeClass('onFix');
+            lSize.css({bottom:0});
+        }else{
+            lSize.removeClass('onFix');
+        }
     })
 }
