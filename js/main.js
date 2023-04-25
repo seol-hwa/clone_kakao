@@ -1,7 +1,7 @@
 gnb();
 burger();
 search();
-content();
+// content();
 
 function gnb() {
     const mainMenu = $('.main-menu');

@@ -25,9 +25,10 @@
     border:none;
 }
 .inner{
-    width:1300px;
+    width:1296px;
     height:100%;
     margin:0 auto;
+    position:relative;
 }
 .news-head:before{
     content:'';
