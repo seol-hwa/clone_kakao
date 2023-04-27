@@ -715,7 +715,7 @@ div .light-mode {
     box-shadow: 4px 4px 40px #ebebeb;
     width:100%;
     height:540px;
-    padding-top:67px;
+    padding:67px 184px 0;
     box-sizing: border-box;
     border-radius: 16px;
     margin-bottom:36px;
@@ -723,10 +723,9 @@ div .light-mode {
 .culture-container:after{
     content:'';
     display: block;
-    width:856px;
-    height:228px;
+    width:100%;
+    padding-bottom:26.63551401869159%;
     background:url('../img/bg_home_culture_210325.png') no-repeat center/cover;
-    margin:0 auto;
 }
 .culture-text{
     font-size: 40px;
@@ -743,7 +742,7 @@ div .light-mode {
     background:#000;
     border-radius: 30px;
     color:#fff;
-    margin:0 auto 56px;
+    margin:0 auto 36px;
     justify-content: center;
     align-items:center;
     font-size: 14px;
@@ -791,7 +790,7 @@ div .light-mode {
     position:absolute;
     top:50%;
     left:50%;
-    transform: translate(-42%, -70%);
+    transform: translate(-42%, -72%);
     color:#fff;
     font-size: 12px;
     font-weight: bold;
@@ -829,9 +828,8 @@ div .light-mode {
     background-image: url('../img/ico_privacy.png');
 }
 .title-customer{
+    display: inline-block;
     margin:0 0 12px 24px;
-    width:233px;
-    height:42px;
     padding: 14px 20px 12px 25px;
     box-sizing: border-box;
     font-weight: bold;
@@ -841,7 +839,8 @@ div .light-mode {
 .rel-wrap{
     display: flex;
     margin: 0 30px;
-    justify-content: space-between;
+    justify-content: center;
+    gap:8px;
 }
 .relation{
     display: block;
@@ -854,7 +853,7 @@ div .light-mode {
 .survice-wrap{
     margin-bottom:84px;
     display: flex;
-    justify-content: space-between;
+    gap:36px;
 }
 .survice-wrap a{
     display: block;
@@ -871,8 +870,8 @@ div .light-mode {
     display: block;
     height:160px;
     position:absolute;
-    right:39px;
-    bottom:39px;
+    right:40px;
+    bottom:40px;
 }
 .survice-box{
     background:#fae100;
@@ -1039,6 +1038,32 @@ div .light-mode {
     .align06:hover{
         top:1784px;
     } */
+    .culture-container{
+        padding:67px 70px 0;
+        margin-bottom:30px;
+    }
+    .culture-link{
+        margin-bottom:44px;
+    }
+    .survice-wrap{
+        gap:33px;
+        justify-content: flex-end;
+        margin-bottom:72px;
+    }
+    .survice-wrap a{
+        padding-right:82px;
+    }
+    .survice-wrap a:after{
+        right:34px;
+        bottom:34px;
+        height:130px;
+    }
+    .survice-box:after{
+        width:130px;
+    }
+    .emplo-box:after{
+        width:251px;
+    }
 }
 
 @media screen and (max-width:1023px) {
@@ -1121,6 +1146,62 @@ div .light-mode {
         margin-left:0;
         gap:36px;
     }
+    .culture-container{
+        width:630px;
+        height: 720px;
+        padding:49px 104px 0;
+        margin-bottom:36px;
+    }
+    .culture-container:after{
+        background-image:url('../img/bg_home_culture_s_210325.png');
+        padding-bottom:100%;
+    }
+    .culture-text{
+        font-size: 34px;
+        line-height: 52px;
+        margin-bottom: 23px;
+    }
+    .culture-text .br{
+        display: block;
+    }
+    .culture-link{
+        margin-bottom:43px;
+    }
+    .sns-container{
+        flex-direction: column;
+        justify-content: center;
+        gap:24px;
+        height:auto;
+        padding:46px 0 36px;
+    }
+    .last-news-container{
+        padding-bottom:344px;
+    }
+    .survice-wrap{
+        gap:36px;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-bottom:76px;
+    }
+    .survice-wrap a{
+        width:calc(100% - 3px);
+        padding-right:160px;
+    }
+    .survice-wrap a:after{
+        right:40px;
+        bottom: 40px;
+        height:160px;
+    }
+    .survice-box:after{
+        width:160px;
+    }
+    .emplo-box:after{
+        width:309px;
+    }
+    .top-btn{
+        right:50%;
+        transform:translateX(50%);
+    }
 }
 
 @media screen and (max-width:767px) {
@@ -1187,5 +1268,75 @@ div .light-mode {
     }
     .title-stock{
         font-size: 48px;
+    }
+    .culture-container{
+        width:100%;
+        height:484px;
+        padding:37px 36px 0;
+    }
+    .culture-container:after{
+        margin:0 16px;
+        width:calc(100% - 32px);
+        padding-bottom:calc(100% - 32px);
+    }
+    .culture-text{
+        font-size: 28px;
+        line-height: 40px;
+    }
+    .culture-link{
+        margin-bottom:22px;
+    }
+    .sns-container{
+        padding:25px 0 24px;
+    }
+    .sns-text{
+        text-align: center;
+        font-size: 24px;
+        line-height: 38px;
+    }
+    .sns-list li a{
+        width:52px;
+        height:52px;
+    }
+    .sns-list li a .bx{
+        font-size: 28px;
+        line-height: 52px;
+    }
+    .last-news-container{
+        padding-bottom:172px;
+    }
+    .title-customer{
+        padding:18px 25px 18px 30px;
+        border-radius: 20px;
+        margin-bottom:16px;
+    }
+    .rel-wrap{
+        gap:12px;
+    }
+    .relation{
+        padding:18px 22px 18px 24px;
+        border-radius: 30px;
+    }
+    .survice-wrap{
+        margin-bottom:60px;
+    }
+    .survice-wrap a{
+        height: 484px;
+        padding:37px 36px 0 33px;
+    }
+    .survice-wrap a:after{
+        right:32px;
+        bottom:32px;
+        height:140px;
+    }
+    .survice-box:after{
+        width:140px;
+    }
+    .emplo-box:after{
+        width:272px;
+    }
+    .survice-title{
+        font-size: 24px;
+        line-height: 36px;
     }
 }
