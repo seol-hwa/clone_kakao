@@ -37,16 +37,17 @@ function burger() {
     const bgClose = $('.burger-close');
     const bgWrap = $('.burger-wrap');
     const bgMain = $('.bg-main');
-    let time = 500;
     const center = $('.center');
     const centerWrap = $('.center-wrap');
     let isOpen = false;
 
     bgOpen.on('click', function () {
         bgWrap.css({ right: 0 });
+        $('body').css({overflow:'hidden'});
     })
     bgClose.on('click', function () {
         bgWrap.css({ right: '-100%' });
+        $('body').css({overflow:'visible'});
     })
 
 
@@ -82,9 +83,9 @@ function burger() {
 function search() {
     const search = $('.search');
     const con = $('.search-container');
-    const head = $('.search-head');
     const close = $('.search-close');
     const form = $('.search-form');
+    const newsCon=$('.news-container');
 
     search.on('click', function () {
         con.show();
@@ -92,6 +93,8 @@ function search() {
         setTimeout(function () {
             form.animate({ top: 0, opacity: 1 }, 300);
         }, 200);
+        newsCon.addClass('scOn');
+        $('body').css({overflow:'hidden'});
     })
 
     close.on('click', function () {
@@ -101,6 +104,8 @@ function search() {
         setTimeout(function () {
             con.hide();
         }, 200);
+        newsCon.removeClass('scOn');
+        $('body').css({overflow:'visible'});
     })
 }
 function content(){

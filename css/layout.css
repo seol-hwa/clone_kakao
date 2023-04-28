@@ -161,7 +161,7 @@ div .light-mode {
 }
 
 .burger-inner {
-    width: 460px;
+    width: 400px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -337,19 +337,22 @@ div .light-mode {
 /*search*/
 .search-container{
     display: none;
+    position: absolute;
+    width:100%;
+    z-index: 99;
 }
 .search-wrap {
     width: 100%;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     position:relative;
+    overflow-y:auto;
 }
 
 .search-head {
-    height: 80px;
+    height: 73px;
     background:#fff;
     position:relative;
-    z-index:1;
 }
 .search-head .inner{
     display: flex;
@@ -373,17 +376,19 @@ div .light-mode {
     font-size: 40px;
     color:#222;
 }
+.inner-wrap{
+    height:calc(100% - 73px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .search-form {
     position: relative;
     top:-30px;
     opacity:0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height:calc(100% - 80px);
 }
 
-.search-form:after {
+.inner-wrap:after {
     content: '';
     display: block;
     width: 100%;
@@ -393,7 +398,7 @@ div .light-mode {
 
 .search-wrap form {
     width: 100%;
-    padding: 80px 0;
+    padding: 80px 0 60px;
     background: #fff;
 }
 
@@ -477,6 +482,10 @@ div .light-mode {
 /*today news*/
 .news-container{
     padding:166px 0 36px;
+    transition: 300ms;
+}
+.news-container.scOn{
+    padding-top:400px;
 }
 .news-title{
     margin-bottom:96px;
@@ -571,6 +580,7 @@ div .light-mode {
 }
 .news-link{
     display: block;
+    height: calc(100% - 74px);
 }
 .title-news{
     margin:0 24px 23px;
@@ -595,9 +605,15 @@ div .light-mode {
 }
 .news-img{
     width:100%;
+    height: calc(100% - 125px);
+}
+.l-size .news-img{
+    height: calc(100% - 156px);
 }
 .news-img img{
     width:100%;
+    height: 100%;
+    object-fit: cover;
 }
 .three-point{
     position: absolute;
@@ -619,7 +635,7 @@ div .light-mode {
 }
 .side-news{
     width:630px;
-    height:1140px;
+    height:1560px;
     position:relative;
     margin-left:auto;
     display: flex;
@@ -678,7 +694,7 @@ div .light-mode {
     cursor:pointer;
 }
 .align02{
-    right:0;
+    left:333px;
 }
 .align01:hover,
 .align02:hover{
@@ -686,7 +702,7 @@ div .light-mode {
 }
 .align03{
     top:228px;
-    right:0;
+    left:333px;
 }
 .align03:hover{
     top:218px;
@@ -699,7 +715,7 @@ div .light-mode {
 }
 .align05{
     top:684px;
-    right:0;
+    left:333px;
 }
 .align05:hover{
     top:674px;
@@ -709,6 +725,26 @@ div .light-mode {
 }
 .align06:hover{
     top:902px;
+}
+.align07{
+    top:1140px;
+    left:333px;
+}
+.align07:hover{
+    top:1130px;
+}
+.align08{
+    top:1368px;
+}
+.align08:hover{
+    top:1358px;
+}
+.align09{
+    top:1368px;
+    left:333px;
+}
+.align09:hover{
+    top:1358px;
 }
 /*culture*/
 .culture-container{
@@ -802,24 +838,32 @@ div .light-mode {
 }
 .last-news-container .news-wrap{
     margin-bottom:36px;
+    flex-direction: row-reverse;
 }
 .last-news-container .side-news{
     margin-left:0;
     margin-right:auto;
     height:auto;
 }
-.align11{
-    right:0;
+.align12{
+    left:333px;
 }
-.align10:hover,
-.align11:hover{
+.align11:hover,
+.align12:hover{
     top:-10px;
 }
-.align12{
+.align13{
     top:228px;
 }
-.align12:hover{
+.align13:hover{
     top:218px;
+}
+.align14{
+    top:456px;
+    left:333px;
+}
+.align14:hover{
+    top:446px;
 }
 .news-head.customer:before{
     background-image: url('../img/ico_customer.png');
@@ -970,6 +1014,9 @@ div .light-mode {
     .news-container{
         padding:144px 0 30px;
     }
+    .news-container.scOn{
+        padding-top:440px;
+    }
     .news-title{
         margin-bottom:72px;
     }
@@ -990,32 +1037,18 @@ div .light-mode {
     .side-news{
         width:297px;
         height:3108px;
-        gap:30px;
-    }
-    .side-news .report-box{
-        position:relative;
-    }
-    .align03,
-    .align04,
-    .align05,
-    .align06{
-        top:0;
-    }
-    .align03:hover,
-    .align04:hover,
-    .align05:hover,
-    .align06:hover{
-        top:-10px;
     }
 
-    /* .align02{
+    .align02{
         top:450px;
+        left:0;
     }
     .align02:hover{
         top:440px;
     }
     .align03{
         top:672px;
+        left:0;
     }
     .align03:hover{
         top:662px;
@@ -1028,22 +1061,66 @@ div .light-mode {
     }
     .align05{
         top:1572px;
+        left:0;
     }
     .align05:hover{
         top:1562px;
     }
     .align06{
-        top:1794px;
+        top:2022px;
     }
     .align06:hover{
-        top:1784px;
-    } */
+        top:2012px;
+    }
+    .align07{
+        top:2472px;
+        left:0;
+    }
+    .align07:hover{
+        top:2462px;
+    }
+    .align08{
+        top:2694px;
+    }
+    .align08:hover{
+        top:2684px;
+    }
+    .align09{
+        top:2916px;
+        left:0;
+    }
+    .align09:hover{
+        top:2906px;
+    }
     .culture-container{
         padding:67px 70px 0;
         margin-bottom:30px;
     }
     .culture-link{
         margin-bottom:44px;
+    }
+    .last-news-container .side-news{
+        height:1314px;
+    }
+    .align12{
+        top:222px;
+        left:0;
+    }
+    .align12:hover{
+        top:212px;
+    }
+    .align13{
+        top:672px;
+    }
+    .align13:hover{
+        top:662px;
+    }
+    .align14{
+        top:1122px;
+        left:0;
+    }
+    .align14:hover{
+        top:1112px;
     }
     .survice-wrap{
         gap:33px;
@@ -1096,23 +1173,19 @@ div .light-mode {
     .burger-wrap {
         display: block;
     }
-
-    .search-form{
-        height:10px;
-    }
-    .search-form.on{
-        height:calc(100% - 70px);
+    .inner-wrap{
+        height:calc(100% - 61px);
     }
 
     .search-head{
-        height:70px;
+        height:61px;
     }
     .search-box {
-        width: 500px;
+        width: 430px;
     }
 
     .search-box input {
-        width: 420px;
+        width: 350px;
     }
 
     .search-img {
@@ -1123,6 +1196,9 @@ div .light-mode {
     }
     .news-container{
         padding:108px 0 36px;
+    }
+    .news-container.scOn{
+        padding-top:400px;
     }
     .news-title{
         margin-bottom:46px;
@@ -1144,7 +1220,61 @@ div .light-mode {
     .side-news{
         width:100%;
         margin-left:0;
-        gap:36px;
+        height: 1560px;
+    }
+    .align02{
+        top:0;
+        left:333px;
+    }
+    .align01:hover,
+    .align02:hover{
+        top:-10px;
+    }
+    .align03{
+        top:228px;
+        left:333px;
+    }
+    .align03:hover{
+        top:218px;
+    }
+    .align04{
+        top:456px;
+    }
+    .align04:hover{
+        top:446px;
+    }
+    .align05{
+        top:684px;
+        left:333px;
+    }
+    .align05:hover{
+        top:674px;
+    }
+    .align06{
+        top:912px;
+    }
+    .align06:hover{
+        top:902px;
+    }
+    .align07{
+        top:1140px;
+        left:333px;
+    }
+    .align07:hover{
+        top:1130px;
+    }
+    .align08{
+        top:1368px;
+    }
+    .align08:hover{
+        top:1358px;
+    }
+    .align09{
+        top:1368px;
+        left:333px;
+    }
+    .align09:hover{
+        top:1358px;
     }
     .culture-container{
         width:630px;
@@ -1176,6 +1306,32 @@ div .light-mode {
     }
     .last-news-container{
         padding-bottom:344px;
+    }
+    .last-news-container .news-wrap{
+        flex-direction: column;
+    }
+    .last-news-container .side-news{
+        height: 648px;
+    }
+    .align12{
+        top:0;
+        left:333px;
+    }
+    .align12:hover{
+        top:-10px;
+    }
+    .align13{
+        top:228px;
+    }
+    .align13:hover{
+        top:218px;
+    }
+    .align14{
+        top:456px;
+        left:333px;
+    }
+    .align14:hover{
+        top:446px;
     }
     .survice-wrap{
         gap:36px;
@@ -1210,17 +1366,20 @@ div .light-mode {
     }
 
     .burger-inner {
-        width: 400px;
+        width: 350px;
     }
 
     .search-box {
-        width: 320px;
+        width: 290px;
         margin: 0;
     }
 
     .search-box input {
-        width: 250px;
+        width: 210px;
         padding-right: 10px;
+    }
+    .search-wrap{
+        width:100%;
     }
 
     .search-img {
@@ -1231,6 +1390,9 @@ div .light-mode {
     .news-container{
         padding-bottom:72px;
     }
+    .news-container.scOn{
+        padding-top:340px;
+    }
     .news-title-top:before{
         width:40px;
         height:40px;
@@ -1238,16 +1400,76 @@ div .light-mode {
     .news-wrap{
         gap:63px;
     }
+    .side-news{
+        height:3586px;
+    }
     .l-size{
         height:484px;
     }
     .m-size{
         width:100%;
-        height:483px;
+        height:484px;
     }
     .s-size{
         width:100%;
         height:220px;
+    }
+    .aling01{
+        height: 483px;
+    }
+    .align02{
+        top:519px;
+        left:0;
+    }
+    .align02:hover{
+        top:509px;
+    }
+    .align03{
+        top:775px;
+        left:0;
+    }
+    .align03:hover{
+        top:765px;
+    }
+    .align04{
+        top:1295px;
+    }
+    .align04:hover{
+        top:1285px;
+    }
+    .align05{
+        top:1815px;
+        left:0;
+    }
+    .align05:hover{
+        top:1805px;
+    }
+    .align06{
+        top:2335px;
+        height:483px;
+    }
+    .align06:hover{
+        top:2325px;
+    }
+    .align07{
+        top:2854px;
+        left:0;
+    }
+    .align07:hover{
+        top:2844px;
+    }
+    .align08{
+        top:3110px;
+    }
+    .align08:hover{
+        top:3100px;
+    }
+    .align09{
+        top:3366px;
+        left:0;
+    }
+    .align09:hover{
+        top:3356px;
     }
     .news-head.stock{
         margin-bottom:39px;
@@ -1262,6 +1484,12 @@ div .light-mode {
     .hash-wrap-news,
     .m-size .hash-wrap-news{
         margin-bottom:27px;
+    }
+    .news-img{
+        height:calc(100% - 138px)
+    }
+    .l-size .news-img{
+        height: calc(100% - 139px);
     }
     .stock-wrap{
         margin-bottom:28px;
@@ -1304,6 +1532,30 @@ div .light-mode {
     }
     .last-news-container{
         padding-bottom:172px;
+    }
+    .last-news-container .side-news{
+        height:1515px;
+    }
+    .align12{
+        top:256px;
+        left:0;
+    }
+    .align12:hover{
+        top:246px;
+    }
+    .align13{
+        top:776px;
+        height: 483px;
+    }
+    .align13:hover{
+        top:766px;
+    }
+    .align14{
+        top:1295px;
+        left:0;
+    }
+    .align14:hover{
+        top:1285px;
     }
     .title-customer{
         padding:18px 25px 18px 30px;
