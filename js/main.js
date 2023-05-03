@@ -29,6 +29,7 @@ function gnb() {
             subMenu.removeClass('on');
             mainMenu.data('opCheck', false);
         }
+        return false;
     });
 }
 
@@ -41,13 +42,32 @@ function burger() {
     const centerWrap = $('.center-wrap');
     let isOpen = false;
 
+    $(window).on('resize', function () {
+        if (window.matchMedia('(max-width:1023px)').matches == false) {
+            bgWrap.css({ right: '-100%' });
+            $('body').css({ overflow: 'visible' });
+            center.removeClass('on');
+            centerWrap.hide();
+            isOpen = false;
+            bgMain.next().hide();
+            bgMain.removeClass('on');
+            bgMain.data('opCheck', false);
+        }
+    })
+
     bgOpen.on('click', function () {
         bgWrap.css({ right: 0 });
-        $('body').css({overflow:'hidden'});
+        $('body').css({ overflow: 'hidden' });
     })
     bgClose.on('click', function () {
         bgWrap.css({ right: '-100%' });
-        $('body').css({overflow:'visible'});
+        $('body').css({ overflow: 'visible' });
+        center.removeClass('on');
+        centerWrap.hide();
+        isOpen = false;
+        bgMain.next().hide();
+        bgMain.removeClass('on');
+        bgMain.data('opCheck', false);
     })
 
 
@@ -85,7 +105,7 @@ function search() {
     const con = $('.search-container');
     const close = $('.search-close');
     const form = $('.search-form');
-    const newsCon=$('.news-container');
+    const newsCon = $('.news-container');
 
     search.on('click', function () {
         con.show();
@@ -94,7 +114,7 @@ function search() {
             form.animate({ top: 0, opacity: 1 }, 300);
         }, 200);
         newsCon.addClass('scOn');
-        $('body').css({overflow:'hidden'});
+        $('body').css({ overflow: 'hidden' });
     })
 
     close.on('click', function () {
@@ -105,19 +125,19 @@ function search() {
             con.hide();
         }, 200);
         newsCon.removeClass('scOn');
-        $('body').css({overflow:'visible'});
+        $('body').css({ overflow: 'visible' });
     })
 }
-function content(){
-    $(window).on('scroll',function(){
-        let scrollT=$(window).scrollTop();
-        const lSize=$('.l-size');
-        if(scrollT >= 277){
+function content() {
+    $(window).on('scroll', function () {
+        let scrollT = $(window).scrollTop();
+        const lSize = $('.l-size');
+        if (scrollT >= 277) {
             lSize.addClass('onFix');
-        }else if(scrollT >= 680){
+        } else if (scrollT >= 680) {
             lSize.removeClass('onFix');
-            lSize.css({bottom:0});
-        }else{
+            lSize.css({ bottom: 0 });
+        } else {
             lSize.removeClass('onFix');
         }
     })
