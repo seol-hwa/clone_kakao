@@ -130,8 +130,15 @@ div .light-mode {
     align-items: center;
     gap: 10px;
 }
+.sub-head-container .inner:before{
+    content:'';
+    display: block;
+    width:40px;
+    height:40px;
+    background: url('../img/25d.png') no-repeat center/cover;
+}
 
-.date-img-title {
+/* .date-img-title {
     width: 40px;
     height: 40px;
 }
@@ -139,7 +146,7 @@ div .light-mode {
 .date-img-title img {
     width: 100%;
     height: 100%;
-}
+} */
 
 .today-kakao {
     font-size: 20px;
@@ -495,7 +502,7 @@ div .light-mode {
     display: block;
     width:72px;
     height:72px;
-    background:url('../img/ico_date12.gif') no-repeat center/cover;
+    background:url('../img/ico_date25.gif') no-repeat center/cover;
     margin-right:12px;
 }
 .text-news{
@@ -1010,6 +1017,9 @@ footer{
 .f-main strong{
     font-weight: bold;
 }
+.f-gnb-arrow{
+    display: none;
+}
 .f-main:hover:before{
     content: '';
     display: block;
@@ -1318,6 +1328,16 @@ footer{
     .emplo-box:after{
         width:251px;
     }
+    .f-info-list{
+        width:560px;
+        margin-bottom: 10px;
+    }
+    .f-info-main{
+        margin-bottom:5px;
+    }
+    .rel-site{
+        width:298px;
+    }
 }
 
 @media screen and (max-width:1023px) {
@@ -1534,6 +1554,50 @@ footer{
     .top-btn{
         right:50%;
         transform:translateX(50%);
+    }
+    footer{
+        padding-top:0;
+        border:none;
+    }
+    .f-gnb{
+        flex-direction: column;
+    }
+    .f-main-menu{
+        width:100%;
+    }
+    .f-main{
+        width:100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top:1px solid #e6e6e6;
+        font-size: 14px;
+        height: 48px;
+    }
+    .main-plus:last-child{
+        border-bottom: 1px solid #e6e6e6;
+    }
+    .f-main:hover:before{
+        display: none;
+    }
+    .f-gnb-arrow{
+        display: block;
+        width:6px;
+        height:6px;
+        border-right:2px solid #888;
+        border-bottom:2px solid #888;
+        box-sizing: border-box;
+        transform: rotate(45deg) translateY(-50%);
+        margin-right:13px;
+    }
+    .f-main-news .f-gnb-arrow{
+        transform: rotate(-45deg);
+    }
+    .f-main-menu .bx{
+        margin: 0 13px 0 0;
+    }
+    .f-sub-menu{
+        border-top:1px solid #e6e6e6;
     }
 }
 
