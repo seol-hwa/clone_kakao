@@ -146,11 +146,31 @@ function content() {
             lSize.css({ top: bottomP });
         }
     })
-    
+
     $('.report-box').on('mouseenter',function(){
-        $(this).addClass('hov',200);
+        $(this).addClass('hov',300);
     })
     $('.report-box').on('mouseleave',function(){
         $('.report-box').removeClass('hov');
+    })
+    lSize.on('mouseenter',function(){
+        let scrollT = $(window).scrollTop();
+        if(scrollT < 277){
+            lSize.stop().animate({top:'-5px'},300);
+        }else if (scrollT >= 277 && scrollT < 1134){
+            lSize.stop().animate({top:'115px'},300);
+        }else if (scrollT >= 1134){
+            lSize.stop().animate({top:bottomP - 5},300);
+        }
+    })
+    lSize.on('mouseleave',function(){
+        let scrollT = $(window).scrollTop();
+        if(scrollT < 277){
+            lSize.css({ top: 0 });
+        }else if (scrollT >= 277 && scrollT < 1134){
+            lSize.css({ top: '120px' });
+        }else if (scrollT >= 1134){
+            lSize.css({ top: bottomP });
+        }
     })
 }

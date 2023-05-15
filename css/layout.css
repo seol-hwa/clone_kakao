@@ -530,6 +530,12 @@ div .light-mode {
     width:630px;
     height:700px;
 }
+.l-size.hov{
+    top:-5px;
+}
+.l-size.onFix.hov{
+    top:-115px;
+}
 .l-size.onFix{
     position:fixed;
 }
@@ -718,53 +724,53 @@ div .light-mode {
 }
 .align01.hov,
 .align02.hov{
-    top:-10px;
+    top:-5px;
 }
 .align03{
     top:228px;
     left:333px;
 }
-.align03:hover{
-    top:218px;
+.align03.hov{
+    top:223px;
 }
 .align04{
     top:456px;
 }
-.align04:hover{
-    top:446px;
+.align04.hov{
+    top:451px;
 }
 .align05{
     top:684px;
     left:333px;
 }
-.align05:hover{
-    top:674px;
+.align05.hov{
+    top:679px;
 }
 .align06{
     top:912px;
 }
-.align06:hover{
-    top:902px;
+.align06.hov{
+    top:907px;
 }
 .align07{
     top:1140px;
     left:333px;
 }
-.align07:hover{
-    top:1130px;
+.align07.hov{
+    top: 1135px;
 }
 .align08{
     top:1368px;
 }
-.align08:hover{
-    top:1358px;
+.align08.hov{
+    top:1363px;
 }
 .align09{
     top:1368px;
     left:333px;
 }
-.align09:hover{
-    top:1358px;
+.align09.hov{
+    top:1363px;
 }
 /*culture*/
 .culture-container{
@@ -865,25 +871,29 @@ div .light-mode {
     margin-right:auto;
     height:auto;
 }
+.align11{
+    top:0;
+}
 .align12{
+    top:0;
     left:333px;
 }
-.align11:hover,
-.align12:hover{
-    top:-10px;
+.align11.hov,
+.align12.hov{
+    top:-5px;
 }
 .align13{
     top:228px;
 }
-.align13:hover{
-    top:218px;
+.align13.hov{
+    top:223px;
 }
 .align14{
     top:456px;
     left:333px;
 }
-.align14:hover{
-    top:446px;
+.align14.hov{
+    top:451px;
 }
 .news-head.customer:before{
     background-image: url('../img/ico_customer.png');
