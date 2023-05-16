@@ -869,7 +869,7 @@ div .light-mode {
 .last-news-container .side-news{
     margin-left:0;
     margin-right:auto;
-    height:auto;
+    height:876px;
 }
 .align11{
     top:0;
@@ -894,6 +894,12 @@ div .light-mode {
 }
 .align14.hov{
     top:451px;
+}
+.align15{
+    top:684px;
+}
+.align15.hov{
+    top:679px;
 }
 .news-head.customer:before{
     background-image: url('../img/ico_customer.png');
@@ -1108,6 +1114,12 @@ footer{
 .f-info .bx-chevron-up{
     display:none;
 }
+.f-info.on .bx-chevron-up{
+    display: inline;
+}
+.f-info.on .bx-chevron-down{
+    display: none;
+}
 .f-info:hover .bx-chevron-down{
     display: none;
 }
@@ -1288,54 +1300,54 @@ footer{
         top:450px;
         left:0;
     }
-    .align02:hover{
-        top:440px;
+    .align02.hov{
+        top:445px;
     }
     .align03{
         top:672px;
         left:0;
     }
-    .align03:hover{
-        top:662px;
+    .align03.hov{
+        top:667px;
     }
     .align04{
         top:1122px;
     }
-    .align04:hover{
-        top:1112px;
+    .align04.hov{
+        top:1117px;
     }
     .align05{
         top:1572px;
         left:0;
     }
-    .align05:hover{
-        top:1562px;
+    .align05.hov{
+        top:1567px;
     }
     .align06{
         top:2022px;
     }
-    .align06:hover{
-        top:2012px;
+    .align06.hov{
+        top:2017px;
     }
     .align07{
         top:2472px;
         left:0;
     }
-    .align07:hover{
-        top:2462px;
+    .align07.hov{
+        top:2467px;
     }
     .align08{
         top:2694px;
     }
-    .align08:hover{
-        top:2684px;
+    .align08.hov{
+        top:2689px;
     }
     .align09{
         top:2916px;
         left:0;
     }
-    .align09:hover{
-        top:2906px;
+    .align09.hov{
+        top:2911px;
     }
     .culture-container{
         padding:67px 70px 0;
@@ -1345,27 +1357,33 @@ footer{
         margin-bottom:44px;
     }
     .last-news-container .side-news{
-        height:1314px;
+        height:1764px;
     }
     .align12{
         top:222px;
         left:0;
     }
-    .align12:hover{
-        top:212px;
+    .align12.hov{
+        top:217px;
     }
     .align13{
         top:672px;
     }
-    .align13:hover{
-        top:662px;
+    .align13.hov{
+        top:667px;
     }
     .align14{
         top:1122px;
         left:0;
     }
-    .align14:hover{
-        top:1112px;
+    .align14.hov{
+        top:1117px;
+    }
+    .align15{
+        top:1572px;
+    }
+    .align15.hov{
+        top:1577px;
     }
     .survice-wrap{
         gap:33px;
@@ -1481,55 +1499,55 @@ footer{
         top:0;
         left:333px;
     }
-    .align01:hover,
-    .align02:hover{
-        top:-10px;
+    .align01.hov,
+    .align02.hov{
+        top:-5px;
     }
     .align03{
         top:228px;
         left:333px;
     }
-    .align03:hover{
-        top:218px;
+    .align03.hov{
+        top:223px;
     }
     .align04{
         top:456px;
     }
-    .align04:hover{
-        top:446px;
+    .align04.hov{
+        top:451px;
     }
     .align05{
         top:684px;
         left:333px;
     }
-    .align05:hover{
-        top:674px;
+    .align05.hov{
+        top:679px;
     }
     .align06{
         top:912px;
     }
-    .align06:hover{
-        top:902px;
+    .align06.hov{
+        top:907px;
     }
     .align07{
         top:1140px;
         left:333px;
     }
-    .align07:hover{
-        top:1130px;
+    .align07.hov{
+        top:1135px;
     }
     .align08{
         top:1368px;
     }
-    .align08:hover{
-        top:1358px;
+    .align08.hov{
+        top:1363px;
     }
     .align09{
         top:1368px;
         left:333px;
     }
-    .align09:hover{
-        top:1358px;
+    .align09.hov{
+        top:1363px;
     }
     .culture-container{
         width:630px;
@@ -1566,27 +1584,33 @@ footer{
         flex-direction: column;
     }
     .last-news-container .side-news{
-        height: 648px;
+        height: 876px;
     }
     .align12{
         top:0;
         left:333px;
     }
-    .align12:hover{
-        top:-10px;
+    .align12.hov{
+        top:-5px;
     }
     .align13{
         top:228px;
     }
-    .align13:hover{
-        top:218px;
+    .align13.hov{
+        top:223px;
     }
     .align14{
         top:456px;
         left:333px;
     }
-    .align14:hover{
-        top:446px;
+    .align14.hov{
+        top:451px;
+    }
+    .align15{
+        top:684px;
+    }
+    .align15.hov{
+        top:679px;
     }
     .survice-wrap{
         gap:36px;
@@ -1774,55 +1798,55 @@ footer{
         top:519px;
         left:0;
     }
-    .align02:hover{
-        top:509px;
+    .align02.hov{
+        top:514px;
     }
     .align03{
         top:775px;
         left:0;
     }
-    .align03:hover{
-        top:765px;
+    .align03.hov{
+        top:770px;
     }
     .align04{
         top:1295px;
     }
-    .align04:hover{
-        top:1285px;
+    .align04.hov{
+        top:1290px;
     }
     .align05{
         top:1815px;
         left:0;
     }
-    .align05:hover{
-        top:1805px;
+    .align05.hov{
+        top:1810px;
     }
     .align06{
         top:2335px;
         height:483px;
     }
-    .align06:hover{
-        top:2325px;
+    .align06.hov{
+        top:2330px;
     }
     .align07{
         top:2854px;
         left:0;
     }
-    .align07:hover{
-        top:2844px;
+    .align07.hov{
+        top:2849px;
     }
     .align08{
         top:3110px;
     }
-    .align08:hover{
-        top:3100px;
+    .align08.hov{
+        top:3105px;
     }
     .align09{
         top:3366px;
         left:0;
     }
-    .align09:hover{
-        top:3356px;
+    .align09.hov{
+        top:3361px;
     }
     .news-head.stock{
         margin-bottom:39px;
@@ -1887,28 +1911,34 @@ footer{
         padding-bottom:172px;
     }
     .last-news-container .side-news{
-        height:1515px;
+        height:2029px;
     }
     .align12{
         top:256px;
         left:0;
     }
-    .align12:hover{
-        top:246px;
+    .align12.hov{
+        top:251px;
     }
     .align13{
         top:776px;
         height: 483px;
     }
-    .align13:hover{
-        top:766px;
+    .align13.hov{
+        top:771px;
     }
     .align14{
         top:1295px;
         left:0;
     }
-    .align14:hover{
-        top:1285px;
+    .align14.hov{
+        top:1290px;
+    }
+    .align15{
+        top:1809px;
+    }
+    .align15.hov{
+        top:1804px;
     }
     .title-customer{
         padding:18px 25px 18px 30px;
