@@ -38,3 +38,8 @@
     background-size: 36px;
     margin-right:8px;
 }
+.sns-list li a{
+    background-image:url('../img/ico_sns.2acc182.png');
+    background-size:317px 237px;
+    background-repeat: no-repeat;
+}
