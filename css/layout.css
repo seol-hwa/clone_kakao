@@ -14,11 +14,11 @@ header.on{
 
 .head-container {
     height: 72px;
-    border-bottom:1px solid transparent;
+    border-bottom:1px solid #e9e9e9;
     background:#fff;
 }
 .head-container.on{
-    border-bottom:1px solid #e9e9e9;
+    border-bottom:1px solid transparent;
 }
 
 .head-container .inner {
@@ -519,7 +519,6 @@ div .light-mode {
 }
 .report-box{
     position:relative;
-    top:0;
     border-radius: 16px;
     box-sizing: border-box;
     box-shadow: 4px 4px 40px #ebebeb;
@@ -533,10 +532,10 @@ div .light-mode {
     height:700px;
 }
 .l-size.hov{
-    top:-5px;
+    bottom:0;
 }
 .l-size.onFix.hov{
-    top:-115px;
+    bottom:25px;
 }
 .l-size.onFix{
     position:fixed;

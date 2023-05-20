@@ -44,18 +44,19 @@ function headChange() {
     const header = $('header');
     const mainHead = $('.head-container');
     const subHead = $('.sub-head-container');
-    const time = 300;
+    const time = 200;
     let lastScroll = 0;
+    mainHead.addClass('on');
 
     $(window).on('scroll', function () {
         let scrollT = $(window).scrollTop();
 
         if (scrollT <= 0) {
             header.removeClass('on', time);
-            mainHead.removeClass('on');
+            mainHead.addClass('on');
         } else if (scrollT > 0 && scrollT < 200) {
             header.removeClass('on', time);
-            mainHead.addClass('on');
+            mainHead.removeClass('on');
             subHead.removeClass('on');
         } else if(scrollT >= 200){
             subHead.addClass('on');
@@ -164,7 +165,7 @@ function content() {
     const time = 300;
 
     $(window).on('resize', function () {
-        bottomP = $('.side-news').innerHeight() - lSize.innerHeight();
+        bottomP = $('.news-container').find('.side-news').innerHeight() - lSize.innerHeight();
         sideBot = $('.news-container').find('.side-news').offset().top + $('.news-container').find('.side-news').innerHeight() - 820;
         sideTop = $('.news-container').find('.side-news').offset().top - 120;
         let scrollT = $(window).scrollTop();
@@ -174,9 +175,9 @@ function content() {
 
         if (window.matchMedia('(max-width:1023px)').matches == true) {
             lSize.removeClass('onFix');
-            lSize.css({ top: 0 });
+            lSize.css({ bottom:0 });
             lSize2.removeClass('onFix');
-            lSize2.css({ top: 0 });
+            lSize2.css({ bottom:0 });
         } else {
             onMove(scrollT, sideBot, sideTop, lSize, bottomP);
             onMove(scrollT, sideBot2, sideTop2, lSize2, bottomP2);
@@ -195,13 +196,13 @@ function content() {
     function onMove(scrollT, sideBot, sideTop, lSize, bottomP) {
         if (scrollT < sideTop) {
             lSize.removeClass('onFix');
-            lSize.css({ top: 0 });
+            lSize.css({ bottom: 0 });
         } else if (scrollT >= sideTop && scrollT < sideBot) {
             lSize.addClass('onFix');
-            lSize.css({ top: '120px' });
+            lSize.css({ bottom:'20px' });
         } else if (scrollT >= sideBot) {
             lSize.removeClass('onFix');
-            lSize.css({ top: bottomP });
+            lSize.css({ bottom:-bottomP });
         }
     }
 
@@ -234,14 +235,14 @@ function content() {
 
         if (window.matchMedia('(max-width:1023px)').matches == false) {
             if (scrollT < sideTop) {
-                lSize.stop().animate({ top: '-5px' }, time);
+                lSize.stop().animate({ bottom:'5px' }, time);
             } else if (scrollT >= sideTop && scrollT < sideBot) {
-                lSize.stop().animate({ top: '115px' }, time);
+                lSize.stop().animate({ bottom:'25px' }, time);
             } else if (scrollT >= sideBot) {
-                lSize.stop().animate({ top: bottomP - 5 }, time);
+                lSize.stop().animate({ bottom:-bottomP+5 }, time);
             }
         } else {
-            lSize.stop().animate({ top: '-5px' }, time);
+            lSize.stop().animate({ bottom:'5px' }, time);
         }
     }
 
@@ -250,14 +251,14 @@ function content() {
 
         if (window.matchMedia('(max-width:1023px)').matches == false) {
             if (scrollT < sideTop) {
-                lSize.css({ top: 0 });
+                lSize.css({ bottom:0 });
             } else if (scrollT >= sideTop && scrollT < sideBot) {
-                lSize.css({ top: '120px' });
+                lSize.css({ bottom:'20px' });
             } else if (scrollT >= sideBot) {
-                lSize.css({ top: bottomP });
+                lSize.css({ bottom:-bottomP });
             }
         } else {
-            lSize.stop().animate({ top: 0 });
+            lSize.stop().animate({ bottom:0 });
         }
     }
 }
