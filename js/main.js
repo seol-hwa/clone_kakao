@@ -1,12 +1,30 @@
+refresh();
 gnb();
 headChange();
 burger();
 search();
+newsDate();
 content();
+stockTime();
 fgnb();
 fInfo();
 site();
+function refresh() {
+    document.onkeydown = fkey;
+    document.onkeypress = fkey;
+    document.onkeyup = fkey;
 
+    var wasPressed = false;
+
+    function fkey(e) {
+        e = e || window.event;
+        if (wasPressed) return;
+
+        if (e.keyCode == 116) {
+            window.open('.','_self');
+        }
+    }
+}
 function gnb() {
     const mainMenu = $('.main-menu');
     const subMenu = $('.sub-menu-list');
@@ -46,27 +64,30 @@ function headChange() {
     const subHead = $('.sub-head-container');
     const time = 200;
     let lastScroll = 0;
-    mainHead.addClass('on');
+    const before = $('.today-img');
+    let todate = new Date().getDate();
+
+    before.html('<img src="img/'+todate+'d.png">');
 
     $(window).on('scroll', function () {
         let scrollT = $(window).scrollTop();
 
         if (scrollT <= 0) {
             header.removeClass('on', time);
-            mainHead.addClass('on');
+            mainHead.removeClass('on');
         } else if (scrollT > 0 && scrollT < 200) {
             header.removeClass('on', time);
-            mainHead.removeClass('on');
+            mainHead.addClass('on');
             subHead.removeClass('on');
-        } else if(scrollT >= 200){
+        } else if (scrollT >= 200) {
             subHead.addClass('on');
             if (scrollT < lastScroll) {
                 header.removeClass('on', time);
-            }else{
+            } else {
                 header.addClass('on', time);
             }
         }
-        lastScroll=$(window).scrollTop();
+        lastScroll = $(window).scrollTop();
     })
 }
 function burger() {
@@ -131,6 +152,8 @@ function search() {
     const close = $('.search-close');
     const form = $('.search-form');
     const newsCon = $('.news-container');
+    const header = $('header');
+    const subHead = $('.sub-head-container');
 
     search.on('click', function () {
         con.show();
@@ -140,6 +163,8 @@ function search() {
         }, 200);
         newsCon.addClass('scOn');
         $('body').css({ overflow: 'hidden' });
+        header.removeClass('on');
+        subHead.removeClass('on');
     })
 
     close.on('click', function () {
@@ -152,6 +177,17 @@ function search() {
         newsCon.removeClass('scOn');
         $('body').css({ overflow: 'visible' });
     })
+}
+function newsDate(){
+    const todayKakao=$('.news-date-img');
+    const dateN=$('.news-title').children('.text-news');
+    let day=new Date().getUTCDate();
+    let month=new Date().getUTCMonth();
+    let week=new Date().getUTCDay();
+    const arr=['일', '월', '화', '수', '목', '금', '토'];
+
+    todayKakao.html('<span class="blind">'+day+'일</span><img src="img/ico_date'+day+'.gif">');
+    dateN.html(month+'월 '+day+'일 '+arr[week]+'요일 소식입니다');
 }
 function content() {
     const lSize = $('.news-container').find('.l-size');
@@ -175,9 +211,9 @@ function content() {
 
         if (window.matchMedia('(max-width:1023px)').matches == true) {
             lSize.removeClass('onFix');
-            lSize.css({ bottom:0 });
+            lSize.css({ bottom: 0 });
             lSize2.removeClass('onFix');
-            lSize2.css({ bottom:0 });
+            lSize2.css({ bottom: 0 });
         } else {
             onMove(scrollT, sideBot, sideTop, lSize, bottomP);
             onMove(scrollT, sideBot2, sideTop2, lSize2, bottomP2);
@@ -199,10 +235,10 @@ function content() {
             lSize.css({ bottom: 0 });
         } else if (scrollT >= sideTop && scrollT < sideBot) {
             lSize.addClass('onFix');
-            lSize.css({ bottom:'20px' });
+            lSize.css({ bottom: '20px' });
         } else if (scrollT >= sideBot) {
             lSize.removeClass('onFix');
-            lSize.css({ bottom:-bottomP });
+            lSize.css({ bottom: -bottomP });
         }
     }
 
@@ -235,14 +271,14 @@ function content() {
 
         if (window.matchMedia('(max-width:1023px)').matches == false) {
             if (scrollT < sideTop) {
-                lSize.stop().animate({ bottom:'5px' }, time);
+                lSize.stop().animate({ bottom: '5px' }, time);
             } else if (scrollT >= sideTop && scrollT < sideBot) {
-                lSize.stop().animate({ bottom:'25px' }, time);
+                lSize.stop().animate({ bottom: '25px' }, time);
             } else if (scrollT >= sideBot) {
-                lSize.stop().animate({ bottom:-bottomP+5 }, time);
+                lSize.stop().animate({ bottom: -bottomP + 5 }, time);
             }
         } else {
-            lSize.stop().animate({ bottom:'5px' }, time);
+            lSize.stop().animate({ bottom: '5px' }, time);
         }
     }
 
@@ -251,16 +287,31 @@ function content() {
 
         if (window.matchMedia('(max-width:1023px)').matches == false) {
             if (scrollT < sideTop) {
-                lSize.css({ bottom:0 });
+                lSize.css({ bottom: 0 });
             } else if (scrollT >= sideTop && scrollT < sideBot) {
-                lSize.css({ bottom:'20px' });
+                lSize.css({ bottom: '20px' });
             } else if (scrollT >= sideBot) {
-                lSize.css({ bottom:-bottomP });
+                lSize.css({ bottom: -bottomP });
             }
         } else {
-            lSize.stop().animate({ bottom:0 });
+            lSize.stop().animate({ bottom: 0 });
         }
     }
+}
+function stockTime(){
+    const update=$('.update-time');
+    let year=new Date().getFullYear();
+    let month=('0'+(new Date().getMonth()+1)).slice(-2);
+    let day=('0'+new Date().getDate()).slice(-2);
+    let hour=new Date().getHours();
+    let minuite=new Date().getMinutes();
+    let ap='AM';
+
+    if(hour>11){
+        ap='PM';
+    }
+    
+    update.html(year+'.'+month+'.'+day+' '+hour+':'+minuite+ap);
 }
 function fgnb() {
     const main = $('.f-main');
