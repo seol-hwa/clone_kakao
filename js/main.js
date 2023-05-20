@@ -45,52 +45,27 @@ function headChange() {
     const mainHead = $('.head-container');
     const subHead = $('.sub-head-container');
     const time = 300;
+    let lastScroll = 0;
 
-    $(window).on('mousewheel DOMMouseScroll scroll', function (e) {
+    $(window).on('scroll', function () {
         let scrollT = $(window).scrollTop();
-        console.log('scr' + scrollT);
 
-        // if (scrollT <= 1) {
-        //     header.removeClass('on', time);
-        //     mainHead.removeClass('on');
-        // } else if (scrollT > 1 && scrollT < 100) {
-        //     header.removeClass('on', time);
-        //     mainHead.addClass('on');
-        //     subHead.removeClass('on');
-        // } else if (scrollT >= 100) {
-        //     subHead.addClass('on');
-        //     mainHead.addClass('on');
-        //     if (e.originalEvent.deltaY < 0 || e.originalEvent.detail > 0) {
-        //         console.log('위');
-        //         header.removeClass('on', time);
-        //         subHead.addClass('on');
-        //         if (scrollT <= 200) {
-        //             subHead.removeClass('on');
-        //         }
-        //     } else {
-        //         console.log('아래');
-        //         header.addClass('on', time);
-        //     }
-        // }
-
-        if(e.originalEvent.deltaY < 0 || e.originalEvent.detail > 0){
-            console.log('위');
-            if(scrollT <= 100){
-                mainHead.removeClass('on');
-            }else if(scrollT <= 200){
-                header.removeClass('on',time);
-                subHead.removeClass('on');
+        if (scrollT <= 0) {
+            header.removeClass('on', time);
+            mainHead.removeClass('on');
+        } else if (scrollT > 0 && scrollT < 200) {
+            header.removeClass('on', time);
+            mainHead.addClass('on');
+            subHead.removeClass('on');
+        } else if(scrollT >= 200){
+            subHead.addClass('on');
+            if (scrollT < lastScroll) {
+                header.removeClass('on', time);
             }else{
-                header.removeClass('on',time);
-                subHead.addClass('on');
-            }
-        }else{
-                mainHead.addClass('on');
-            if(scrollT >= 100){
                 header.addClass('on', time);
-                subHead.addClass('on');
             }
         }
+        lastScroll=$(window).scrollTop();
     })
 }
 function burger() {
