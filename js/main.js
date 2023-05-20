@@ -181,9 +181,9 @@ function search() {
 function newsDate(){
     const todayKakao=$('.news-date-img');
     const dateN=$('.news-title').children('.text-news');
-    let day=new Date().getUTCDate();
-    let month=new Date().getUTCMonth();
-    let week=new Date().getUTCDay();
+    let day=new Date().getDate();
+    let month=new Date().getMonth()+1;
+    let week=new Date().getDay();
     const arr=['일', '월', '화', '수', '목', '금', '토'];
 
     todayKakao.html('<span class="blind">'+day+'일</span><img src="img/ico_date'+day+'.gif">');
@@ -310,7 +310,7 @@ function stockTime(){
     if(hour>11){
         ap='PM';
     }
-    
+
     update.html(year+'.'+month+'.'+day+' '+hour+':'+minuite+ap);
 }
 function fgnb() {
