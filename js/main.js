@@ -186,7 +186,7 @@ function newsDate(){
     let week=new Date().getDay();
     const arr=['일', '월', '화', '수', '목', '금', '토'];
 
-    todayKakao.html('<span class="blind">'+day+'일</span><img src="img/ico_date'+day+'.gif">');
+    todayKakao.html('<img src="img/ico_date'+day+'.gif">');
     dateN.html(month+'월 '+day+'일 '+arr[week]+'요일 소식입니다');
 }
 function content() {
