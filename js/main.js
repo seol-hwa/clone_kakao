@@ -5,6 +5,7 @@ burger();
 search();
 newsDate();
 content();
+contentSns();
 stockTime();
 fgnb();
 fInfo();
@@ -21,7 +22,7 @@ function refresh() {
         if (wasPressed) return;
 
         if (e.keyCode == 116) {
-            window.open('.','_self');
+            window.open('.', '_self');
         }
     }
 }
@@ -53,6 +54,14 @@ function gnb() {
             mainMenu.data('opCheck', false);
         }
     })
+    $('body,html').on('click', function () {
+        subMenu.removeClass('on');
+        mainMenu.data('opCheck', false);
+    })
+    $('.search').on('focus', function () {
+        subMenu.removeClass('on');
+        mainMenu.data('opCheck', false);
+    })
 
     subMenu.prev().on('click', function () {
         return false;
@@ -67,7 +76,7 @@ function headChange() {
     const before = $('.today-img');
     let todate = new Date().getDate();
 
-    before.html('<img src="img/'+todate+'d.png">');
+    before.html('<img src="img/' + todate + 'd.png" alt="' + todate + '일">');
 
     $(window).on('scroll', function () {
         let scrollT = $(window).scrollTop();
@@ -125,7 +134,7 @@ function burger() {
         center.removeClass('on');
         centerWrap.hide();
         isOpen = false;
-        bgMain.next().hide();
+        bgMain.next(bgSub).removeClass('on');
         bgMain.removeClass('on');
         bgMain.data('opCheck', false);
         return false;
@@ -178,16 +187,16 @@ function search() {
         $('body').css({ overflow: 'visible' });
     })
 }
-function newsDate(){
-    const todayKakao=$('.news-date-img');
-    const dateN=$('.news-title').children('.text-news');
-    let day=new Date().getDate();
-    let month=new Date().getMonth()+1;
-    let week=new Date().getDay();
-    const arr=['일', '월', '화', '수', '목', '금', '토'];
+function newsDate() {
+    const todayKakao = $('.news-date-img');
+    const dateN = $('.news-title').children('.text-news');
+    let day = new Date().getDate();
+    let month = new Date().getMonth() + 1;
+    let week = new Date().getDay();
+    const arr = ['일', '월', '화', '수', '목', '금', '토'];
 
-    todayKakao.html('<img src="img/ico_date'+day+'.gif">');
-    dateN.html(month+'월 '+day+'일 '+arr[week]+'요일 소식입니다');
+    todayKakao.html('<img src="img/ico_date' + day + '.gif" alt="' + day + '일">');
+    dateN.html(month + '월 ' + day + '일 ' + arr[week] + '요일 소식입니다');
 }
 function content() {
     const lSize = $('.news-container').find('.l-size');
@@ -298,20 +307,33 @@ function content() {
         }
     }
 }
-function stockTime(){
-    const update=$('.update-time');
-    let year=new Date().getFullYear();
-    let month=('0'+(new Date().getMonth()+1)).slice(-2);
-    let day=('0'+new Date().getDate()).slice(-2);
-    let hour=new Date().getHours();
-    let minuite=new Date().getMinutes();
-    let ap='AM';
+function contentSns() {
+    const openBtn = $('.three-point');
+    const closeBtn = $('.sns-close');
 
-    if(hour>11){
-        ap='PM';
+    openBtn.on('click', function () {
+        $('.report-box').removeClass('on');
+        $(this).parent().addClass('on');
+    })
+    closeBtn.on('click', function (e) {
+        $('.report-box').removeClass('on');
+    })
+
+}
+function stockTime() {
+    const update = $('.update-time');
+    let year = new Date().getFullYear();
+    let month = ('0' + (new Date().getMonth() + 1)).slice(-2);
+    let day = ('0' + new Date().getDate()).slice(-2);
+    let hour = new Date().getHours();
+    let minuite = new Date().getMinutes();
+    let ap = 'AM';
+
+    if (hour > 11) {
+        ap = 'PM';
     }
 
-    update.html(year+'.'+month+'.'+day+' '+hour+':'+minuite+ap);
+    update.html(year + '.' + month + '.' + day + ' ' + hour + ':' + minuite + ap);
 }
 function fgnb() {
     const main = $('.f-main');
