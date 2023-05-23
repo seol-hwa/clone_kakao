@@ -1014,6 +1014,7 @@ div .light-mode {
     font-weight: bold;
     background:#fee102;
     border-radius: 16px;
+    color:#000;
 }
 .rel-wrap{
     display: flex;

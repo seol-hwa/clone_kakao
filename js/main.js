@@ -7,6 +7,7 @@ newsDate();
 content();
 contentSns();
 stockTime();
+topMove();
 fgnb();
 fInfo();
 site();
@@ -81,10 +82,10 @@ function headChange() {
     $(window).on('scroll', function () {
         let scrollT = $(window).scrollTop();
 
-        if (scrollT <= 0) {
+        if (scrollT < 100) {
             header.removeClass('on', time);
             mainHead.removeClass('on');
-        } else if (scrollT > 0 && scrollT < 200) {
+        } else if (scrollT >= 100 && scrollT < 200) {
             header.removeClass('on', time);
             mainHead.addClass('on');
             subHead.removeClass('on');
@@ -161,10 +162,9 @@ function search() {
     const close = $('.search-close');
     const form = $('.search-form');
     const newsCon = $('.news-container');
-    const header = $('header');
-    const subHead = $('.sub-head-container');
 
     search.on('click', function () {
+        $('body,html').stop().animate({scrollTop:0},0);
         con.show();
         close.fadeIn(300);
         setTimeout(function () {
@@ -172,8 +172,8 @@ function search() {
         }, 200);
         newsCon.addClass('scOn');
         $('body').css({ overflow: 'hidden' });
-        header.removeClass('on');
-        subHead.removeClass('on');
+        $('header').removeClass('on',200);
+        $('.sub-head-container').removeClass('on');
     })
 
     close.on('click', function () {
@@ -357,6 +357,17 @@ function stockTime() {
 
     update.html(year + '.' + month + '.' + day + ' ' + hour + ':' + minuite + ap);
 }
+function topMove(){
+    const topBtn=$('.top-btn');
+
+    topBtn.on('click',function(){
+        $('body,html').stop().animate({scrollTop:0},0);
+        $('header').removeClass('on',200);
+        $('.sub-head-container').removeClass('on');
+
+        return false;
+    })
+}
 function fgnb() {
     const main = $('.f-main');
     const sub = $('.f-sub-menu');
@@ -427,3 +438,9 @@ function accordion(main, sub) {
         return false;
     })
 }
+function linkBlock(){
+    $('a').on('click',function(){
+        return false;
+    })
+}
+linkBlock();
