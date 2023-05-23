@@ -200,24 +200,25 @@ function newsDate() {
 }
 function content() {
     const lSize = $('.news-container').find('.l-size');
-    let bottomP = $('.news-container').find('.side-news').innerHeight() - lSize.innerHeight();
-    let sideBot = $('.news-container').find('.side-news').offset().top + $('.news-container').find('.side-news').innerHeight() - 820;
+    let bottomP = $('.news-container').find('.side-news').innerHeight() - 700;
+    let sideBot = $('.news-container').find('.side-news').innerHeight() + $('.news-container').find('.side-news').offset().top - $(window).innerHeight();
     let sideTop = $('.news-container').find('.side-news').offset().top - 120;
     const lSize2 = $('.last-news-container').find('.l-size');
-    let bottomP2 = $('.last-news-container').find('.side-news').innerHeight() - lSize2.innerHeight();
+    let bottomP2 = $('.last-news-container').find('.side-news').innerHeight() - 700;
     let sideTop2 = $('.last-news-container').find('.side-news').offset().top - 120;
-    let sideBot2 = $('.last-news-container').find('.side-news').offset().top + $('.last-news-container').find('.side-news').innerHeight() - 820;
-    const time = 300;
+    let sideBot2 = $('.last-news-container').find('.side-news').innerHeight() + $('.last-news-container').find('.side-news').offset().top - $(window).innerHeight();
+    const time = 200;
     let lastScroll = 0;
+    console.log(bottomP);
 
     $(window).on('resize', function () {
-        bottomP = $('.news-container').find('.side-news').innerHeight() - lSize.innerHeight();
-        sideBot = $('.news-container').find('.side-news').offset().top + $('.news-container').find('.side-news').innerHeight() - 820;
+        bottomP = $('.news-container').find('.side-news').innerHeight() - 700;
+        sideBot = $('.news-container').find('.side-news').innerHeight() + $('.news-container').find('.side-news').offset().top - $(window).innerHeight();
         sideTop = $('.news-container').find('.side-news').offset().top - 120;
         let scrollT = $(window).scrollTop();
-        bottomP2 = $('.last-news-container').find('.side-news').innerHeight() - lSize2.innerHeight();
+        bottomP2 = $('.last-news-container').find('.side-news').innerHeight() - 700;
         sideTop2 = $('.last-news-container').find('.side-news').offset().top - 120;
-        sideBot2 = $('.last-news-container').find('.side-news').offset().top + $('.last-news-container').find('.side-news').innerHeight() - 820;
+        sideBot2 = $('.last-news-container').find('.side-news').innerHeight() + $('.last-news-container').find('.side-news').offset().top - $(window).innerHeight();
 
         if (window.matchMedia('(max-width:1023px)').matches == true) {
             lSize.removeClass('onFix');
@@ -227,6 +228,26 @@ function content() {
         } else {
             onMove(scrollT, sideBot, sideTop, lSize, bottomP, lastScroll);
             onMove(scrollT, sideBot2, sideTop2, lSize2, bottomP2, lastScroll);
+        }
+
+        if ($('.sub-head-container').hasClass('on') == true) {
+            if (scrollT >= sideTop && scrollT < sideBot) {
+                if ($('header').hasClass('on') == true) {
+                    lSize.css({ top: '90px' });
+                    lSize.css({ height: 'calc(100vh - 110px)' });
+                } else {
+                    lSize.css({ top: '163px' });
+                    lSize.css({ height: 'calc(100vh - 183px)' });
+                }
+            } else if (scrollT >= sideTop2 && scrollT < sideBot2) {
+                if ($('header').hasClass('on') == true) {
+                    lSize2.css({ top: '90px' });
+                    lSize2.css({ height: 'calc(100vh - 110px)' });
+                } else {
+                    lSize2.css({ top: '163px' });
+                    lSize2.css({ height: 'calc(100vh - 183px)' });
+                }
+            }
         }
     })
 
@@ -244,6 +265,7 @@ function content() {
         if (scrollT < sideTop) {
             lSize.removeClass('onFix');
             lSize.css({ top: 0 });
+            lSize.css({ height: '700px' });
         } else if (scrollT >= sideTop && scrollT < sideBot) {
             lSize.addClass('onFix');
             lSize.css({ top: '90px' });
@@ -254,6 +276,7 @@ function content() {
             }
         } else if (scrollT >= sideBot) {
             lSize.removeClass('onFix');
+            lSize.css({ height: '700px' });
             lSize.css({ top: bottomP });
         }
     }
@@ -266,37 +289,45 @@ function content() {
         $('.report-box').removeClass('hov');
     })
 
-    // lSize.on('mouseenter', function () {
-    //     onMouse($(this));
-    // })
+    lSize.on('mouseenter', function () {
+        onMouse($(this), bottomP);
+    })
 
-    // lSize.on('mouseleave', function () {
-    //     outMouse($(this))
-    // })
+    lSize.on('mouseleave', function () {
+        outMouse($(this), bottomP);
+    })
 
-    // lSize2.on('mouseenter', function () {
-    //     onMouse($(this));
-    // })
+    lSize2.on('mouseenter', function () {
+        onMouse($(this), bottomP2);
+    })
 
-    // lSize2.on('mouseleave', function () {
-    //     outMouse($(this));
-    // })
+    lSize2.on('mouseleave', function () {
+        outMouse($(this), bottomP2);
+    })
 
-    // function onMouse(lSize) {
-    //     let scrollT = lSize.position().top;
-    //     if (window.matchMedia('(max-width:1023px)').matches == false) {
-    //         // lSize.stop().animate({ top: scrollT - 5 }, time);
-    //         console.log(scrollT-5);
-    //     }
-    // }
+    function onMouse(lSize, bottomP) {
+        if (lSize.position().top == 0) {
+            lSize.stop().animate({ top: '-5px' }, time);
+        } else if (lSize.position().top == 90) {
+            lSize.stop().animate({ top: '85px' }, time);
+        } else if (lSize.position().top == 163) {
+            lSize.stop().animate({ top: '158px' }, time);
+        } else if (lSize.position().top == bottomP) {
+            lSize.stop().animate({ top: bottomP - 5 }, time);
+        }
+    }
 
-    // function outMouse(lSize) {
-    //     let scrollT = lSize.position().top;
-    //     if (window.matchMedia('(max-width:1023px)').matches == false) {
-    //         // lSize.stop().animate({ top: scrollT + 5 }, time);
-    //         console.log(scrollT+5);
-    //     }
-    // }
+    function outMouse(lSize, bottomP) {
+        if (lSize.position().top == '-5') {
+            lSize.stop().animate({ top: 0 }, 0);
+        } else if (lSize.position().top == 85) {
+            lSize.stop().animate({ top: '90px' }, 0);
+        } else if (lSize.position().top == 158) {
+            lSize.stop().animate({ top: '163px' }, 0);
+        } else if (lSize.position().top == bottomP - 5) {
+            lSize.stop().animate({ top: bottomP }, 0);
+        }
+    }
 }
 function contentSns() {
     const openBtn = $('.three-point');
