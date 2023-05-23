@@ -533,13 +533,14 @@ div .light-mode {
 }
 .l-size{
     width:630px;
-    height:700px;
+    max-height:700px;
+    transition:height 300ms;
 }
 .l-size.hov{
-    bottom:0;
+    top:-5px;
 }
 .l-size.onFix.hov{
-    bottom:25px;
+    top:158px;
 }
 .l-size.onFix{
     position:fixed;

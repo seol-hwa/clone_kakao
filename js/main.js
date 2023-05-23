@@ -208,6 +208,7 @@ function content() {
     let sideTop2 = $('.last-news-container').find('.side-news').offset().top - 120;
     let sideBot2 = $('.last-news-container').find('.side-news').offset().top + $('.last-news-container').find('.side-news').innerHeight() - 820;
     const time = 300;
+    let lastScroll = 0;
 
     $(window).on('resize', function () {
         bottomP = $('.news-container').find('.side-news').innerHeight() - lSize.innerHeight();
@@ -220,12 +221,12 @@ function content() {
 
         if (window.matchMedia('(max-width:1023px)').matches == true) {
             lSize.removeClass('onFix');
-            lSize.css({ bottom: 0 });
+            lSize.css({ top: 0 });
             lSize2.removeClass('onFix');
-            lSize2.css({ bottom: 0 });
+            lSize2.css({ top: 0 });
         } else {
-            onMove(scrollT, sideBot, sideTop, lSize, bottomP);
-            onMove(scrollT, sideBot2, sideTop2, lSize2, bottomP2);
+            onMove(scrollT, sideBot, sideTop, lSize, bottomP, lastScroll);
+            onMove(scrollT, sideBot2, sideTop2, lSize2, bottomP2, lastScroll);
         }
     })
 
@@ -233,21 +234,27 @@ function content() {
         let scrollT = $(window).scrollTop();
 
         if (window.matchMedia('(max-width:1023px)').matches == false) {
-            onMove(scrollT, sideBot, sideTop, lSize, bottomP);
-            onMove(scrollT, sideBot2, sideTop2, lSize2, bottomP2);
+            onMove(scrollT, sideBot, sideTop, lSize, bottomP, lastScroll);
+            onMove(scrollT, sideBot2, sideTop2, lSize2, bottomP2, lastScroll);
         }
+        lastScroll = $(window).scrollTop();
     })
 
-    function onMove(scrollT, sideBot, sideTop, lSize, bottomP) {
+    function onMove(scrollT, sideBot, sideTop, lSize, bottomP, lastScroll) {
         if (scrollT < sideTop) {
             lSize.removeClass('onFix');
-            lSize.css({ bottom: 0 });
+            lSize.css({ top: 0 });
         } else if (scrollT >= sideTop && scrollT < sideBot) {
             lSize.addClass('onFix');
-            lSize.css({ bottom: '20px' });
+            lSize.css({ top: '90px' });
+            lSize.css({ height: 'calc(100vh - 110px)' });
+            if (scrollT < lastScroll) {
+                lSize.css({ height: 'calc(100vh - 183px)' });
+                lSize.css({ top: '163px' });
+            }
         } else if (scrollT >= sideBot) {
             lSize.removeClass('onFix');
-            lSize.css({ bottom: -bottomP });
+            lSize.css({ top: bottomP });
         }
     }
 
@@ -259,53 +266,37 @@ function content() {
         $('.report-box').removeClass('hov');
     })
 
-    lSize.on('mouseenter', function () {
-        onMouse($(this), sideTop, sideBot, bottomP);
-    })
+    // lSize.on('mouseenter', function () {
+    //     onMouse($(this));
+    // })
 
-    lSize.on('mouseleave', function () {
-        outMouse($(this), sideTop, sideBot, bottomP)
-    })
+    // lSize.on('mouseleave', function () {
+    //     outMouse($(this))
+    // })
 
-    lSize2.on('mouseenter', function () {
-        onMouse($(this), sideTop2, sideBot2, bottomP2);
-    })
+    // lSize2.on('mouseenter', function () {
+    //     onMouse($(this));
+    // })
 
-    lSize2.on('mouseleave', function () {
-        outMouse($(this), sideTop2, sideBot2, bottomP2);
-    })
+    // lSize2.on('mouseleave', function () {
+    //     outMouse($(this));
+    // })
 
-    function onMouse(lSize, sideTop, sideBot, bottomP) {
-        let scrollT = $(window).scrollTop();
+    // function onMouse(lSize) {
+    //     let scrollT = lSize.position().top;
+    //     if (window.matchMedia('(max-width:1023px)').matches == false) {
+    //         // lSize.stop().animate({ top: scrollT - 5 }, time);
+    //         console.log(scrollT-5);
+    //     }
+    // }
 
-        if (window.matchMedia('(max-width:1023px)').matches == false) {
-            if (scrollT < sideTop) {
-                lSize.stop().animate({ bottom: '5px' }, time);
-            } else if (scrollT >= sideTop && scrollT < sideBot) {
-                lSize.stop().animate({ bottom: '25px' }, time);
-            } else if (scrollT >= sideBot) {
-                lSize.stop().animate({ bottom: -bottomP + 5 }, time);
-            }
-        } else {
-            lSize.stop().animate({ bottom: '5px' }, time);
-        }
-    }
-
-    function outMouse(lSize, sideTop, sideBot, bottomP) {
-        let scrollT = $(window).scrollTop();
-
-        if (window.matchMedia('(max-width:1023px)').matches == false) {
-            if (scrollT < sideTop) {
-                lSize.css({ bottom: 0 });
-            } else if (scrollT >= sideTop && scrollT < sideBot) {
-                lSize.css({ bottom: '20px' });
-            } else if (scrollT >= sideBot) {
-                lSize.css({ bottom: -bottomP });
-            }
-        } else {
-            lSize.stop().animate({ bottom: 0 });
-        }
-    }
+    // function outMouse(lSize) {
+    //     let scrollT = lSize.position().top;
+    //     if (window.matchMedia('(max-width:1023px)').matches == false) {
+    //         // lSize.stop().animate({ top: scrollT + 5 }, time);
+    //         console.log(scrollT+5);
+    //     }
+    // }
 }
 function contentSns() {
     const openBtn = $('.three-point');
