@@ -28,7 +28,7 @@ header.on{
 }
 
 .logo-wrap {
-    display: block;
+    display: flex;
 }
 
 .logo-wrap img {

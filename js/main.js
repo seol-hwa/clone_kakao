@@ -209,7 +209,6 @@ function content() {
     let sideBot2 = $('.last-news-container').find('.side-news').innerHeight() + $('.last-news-container').find('.side-news').offset().top - $(window).innerHeight();
     const time = 200;
     let lastScroll = 0;
-    console.log(bottomP);
 
     $(window).on('resize', function () {
         bottomP = $('.news-container').find('.side-news').innerHeight() - 700;
