@@ -177,7 +177,7 @@ div .light-mode {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .burger-top {
@@ -208,6 +208,8 @@ div .light-mode {
     font-weight: bold;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 20px 0;
 }
 
 .bg-main.on .bxs-up-arrow {
@@ -288,12 +290,15 @@ div .light-mode {
     justify-content: space-between;
     margin-top: auto;
     padding-bottom: 30px;
+    flex-wrap: wrap;
+    gap:10px;
 }
 
 .burger-left {
     display: flex;
     gap: 16px;
     position: relative;
+    flex-wrap: wrap;
 }
 
 .burger-left a {
@@ -338,6 +343,8 @@ div .light-mode {
 .burger-right {
     display: flex;
     gap: 20px;
+    margin-left:auto;
+    flex-wrap: wrap;
 }
 
 .burger-right div .dark-mode,
@@ -434,6 +441,8 @@ div .light-mode {
     width: 900px;
     box-sizing: border-box;
     margin: 0 auto;
+    position:relative;
+    z-index:1;
 }
 
 .search-box:before {
@@ -2139,7 +2148,7 @@ footer {
 @media screen and (max-width:767px) {
     .inner {
         width: 420px;
-        padding: 0 30px;
+        padding: 0 22px;
         box-sizing: border-box;
     }
 
@@ -2151,20 +2160,28 @@ footer {
         width: 290px;
         margin: 0;
     }
+    .search-box:before{
+        width:26px;
+        height:26px;
+    }
 
     .search-box input {
         width: 210px;
         padding-right: 10px;
+        font-size: 18px;
     }
-
+    .hash-wrap{
+        width:100%;
+    }
     .search-wrap {
         width: 100%;
     }
 
     .search-img {
-        width: 70px;
-        height: 75px;
-        right: 0px;
+        width: 65px;
+        height: 70px;
+        top:72px;
+        right: 22px;
     }
 
     .news-container {
@@ -2471,5 +2488,50 @@ footer {
 
     .corp {
         padding-bottom: 0;
+    }
+}
+@media screen and (max-width:411px){
+    .inner{
+        width:100%;
+    }
+    .search-box{
+        width:calc(100% - 54px);
+        padding:12px 0 12px 15px;
+        gap:4px;
+    }
+    .search-box:before{
+        width:20px;
+        height:20px;
+    }
+    .search-box input{
+        font-size: 14px;
+        letter-spacing: -1px;
+        width:calc(100% - 34px);
+        padding-right:10px;
+    }
+    .search-img{
+        width:50px;
+        height:60px;
+        top:80px;
+    }
+    .hash-search{
+        padding: 10px 12px;
+    }
+    .burger-inner{
+        width:100%;
+        padding:0 24px;
+        box-sizing: border-box;
+    }
+    .burger-top{
+        margin-bottom:30px;
+    }
+    .bgmenu-list>li{
+        margin-bottom:34px;
+    }
+    .bg-main{
+        font-size: 30px;
+    }
+    .bg-main:before{
+        margin-right:10px;
     }
 }
