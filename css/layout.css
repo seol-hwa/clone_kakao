@@ -199,7 +199,7 @@ div .light-mode {
 }
 
 .bgmenu-list>li:last-child {
-    margin-bottom: 100px;
+    margin-bottom: 0px;
 }
 
 .bg-main {
@@ -542,7 +542,7 @@ div .light-mode {
 .text-news {
     font-size: 44px;
     font-weight: bold;
-    letter-spacing: -5px;
+    letter-spacing: -2px;
     line-height: 62px;
 }
 
@@ -571,12 +571,6 @@ div .light-mode {
     transition: height 300ms;
 }
 
-/* .l-size.hov{
-    top:-5px;
-} */
-/* .l-size.onFix.hov{
-    top:158px;
-} */
 .l-size.onFix {
     position: fixed;
 }

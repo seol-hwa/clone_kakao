@@ -164,7 +164,7 @@ function search() {
     const newsCon = $('.news-container');
 
     search.on('click', function () {
-        $('body,html').stop().animate({scrollTop:0},0);
+        $('body,html').stop().animate({ scrollTop: 0 }, 0);
         con.show();
         close.fadeIn(300);
         setTimeout(function () {
@@ -172,7 +172,7 @@ function search() {
         }, 200);
         newsCon.addClass('scOn');
         $('body').css({ overflow: 'hidden' });
-        $('header').removeClass('on',200);
+        $('header').removeClass('on', 200);
         $('.sub-head-container').removeClass('on');
     })
 
@@ -230,22 +230,27 @@ function content() {
         }
 
         if ($('.sub-head-container').hasClass('on') == true) {
-            if (scrollT >= sideTop && scrollT < sideBot) {
-                if ($('header').hasClass('on') == true) {
-                    lSize.css({ top: '90px' });
-                    lSize.css({ height: 'calc(100vh - 110px)' });
-                } else {
-                    lSize.css({ top: '163px' });
-                    lSize.css({ height: 'calc(100vh - 183px)' });
+            if (window.matchMedia('(max-width:767px)').matches == false) {
+                if (scrollT >= sideTop && scrollT < sideBot) {
+                    if ($('header').hasClass('on') == true) {
+                        lSize.css({ top: '90px' });
+                        lSize.css({ height: 'calc(100vh - 110px)' });
+                    } else {
+                        lSize.css({ top: '163px' });
+                        lSize.css({ height: 'calc(100vh - 183px)' });
+                    }
+                } else if (scrollT >= sideTop2 && scrollT < sideBot2) {
+                    if ($('header').hasClass('on') == true) {
+                        lSize2.css({ top: '90px' });
+                        lSize2.css({ height: 'calc(100vh - 110px)' });
+                    } else {
+                        lSize2.css({ top: '163px' });
+                        lSize2.css({ height: 'calc(100vh - 183px)' });
+                    }
                 }
-            } else if (scrollT >= sideTop2 && scrollT < sideBot2) {
-                if ($('header').hasClass('on') == true) {
-                    lSize2.css({ top: '90px' });
-                    lSize2.css({ height: 'calc(100vh - 110px)' });
-                } else {
-                    lSize2.css({ top: '163px' });
-                    lSize2.css({ height: 'calc(100vh - 183px)' });
-                }
+            } else {
+                lSize.css({ height: '420px' });
+                lSize2.css({ height: '420px' });
             }
         }
     })
@@ -305,14 +310,16 @@ function content() {
     })
 
     function onMouse(lSize, bottomP) {
-        if (lSize.position().top == 0) {
-            lSize.stop().animate({ top: '-5px' }, time);
-        } else if (lSize.position().top == 90) {
-            lSize.stop().animate({ top: '85px' }, time);
-        } else if (lSize.position().top == 163) {
-            lSize.stop().animate({ top: '158px' }, time);
-        } else if (lSize.position().top == bottomP) {
-            lSize.stop().animate({ top: bottomP - 5 }, time);
+        if (window.matchMedia('(max-width:767px)').matches == false) {
+            if (lSize.position().top == 0) {
+                lSize.stop().animate({ top: '-5px' }, time);
+            } else if (lSize.position().top == 90) {
+                lSize.stop().animate({ top: '85px' }, time);
+            } else if (lSize.position().top == 163) {
+                lSize.stop().animate({ top: '158px' }, time);
+            } else if (lSize.position().top == bottomP) {
+                lSize.stop().animate({ top: bottomP - 5 }, time);
+            }
         }
     }
 
@@ -356,12 +363,12 @@ function stockTime() {
 
     update.html(year + '.' + month + '.' + day + ' ' + hour + ':' + minuite + ap);
 }
-function topMove(){
-    const topBtn=$('.top-btn');
+function topMove() {
+    const topBtn = $('.top-btn');
 
-    topBtn.on('click',function(){
-        $('body,html').stop().animate({scrollTop:0},0);
-        $('header').removeClass('on',200);
+    topBtn.on('click', function () {
+        $('body,html').stop().animate({ scrollTop: 0 }, 0);
+        $('header').removeClass('on', 200);
         $('.sub-head-container').removeClass('on');
 
         return false;
@@ -437,8 +444,8 @@ function accordion(main, sub) {
         return false;
     })
 }
-function linkBlock(){
-    $('a').on('click',function(){
+function linkBlock() {
+    $('a').on('click', function () {
         return false;
     })
 }
