@@ -117,7 +117,7 @@ function burger() {
             center.removeClass('on');
             centerWrap.hide();
             isOpen = false;
-            bgMain.next().hide();
+            bgMain.next().removeClass('on');
             bgMain.removeClass('on');
             bgMain.data('opCheck', false);
         }
